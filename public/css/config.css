@@ -1,0 +1,23 @@
+.page-content {
+	text-align: center;
+}
+
+.configuration-box {
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.instructions {
+	font-size: 18px;
+}
+
+.jump-select {
+
+}
+
+.key-control-box {
+	border: 2px solid lightgray;
+	padding-bottom: 15px;
+	text-align: center;
+}
