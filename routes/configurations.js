@@ -12,6 +12,9 @@ function ensureAuthenticated(req, res, next){
 
 const post_new_configuration = (req, res) => {
 	console.log(req.body.jump)
+	console.log(req.body.shoot)
+	console.log(req.body.select)
+	console.log(req.body.run)
 }
 
 const get_new_configuration = (req, res) => {
