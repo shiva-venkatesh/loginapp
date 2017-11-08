@@ -6,8 +6,7 @@ document.addEventListener('keyup', (event) => {
 
   console.log('keyName value : ' + keyName)
   if(availableKeyValues.includes(keyName)) {
-		keyMappings['jump'] = keyName
-		console.log('Your key mapping is : ' + keyMappings['jump'])
+  	
 	  $("#jumpKey")[0].innerHTML = keyName.toUpperCase()
   }
 }, false)
