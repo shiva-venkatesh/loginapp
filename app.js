@@ -15,6 +15,7 @@ mongoose.connect('mongodb://shiva-v:Erebus26@ds249005.mlab.com:49005/game-contro
 var db = mongoose.connection;
 
 var users = require('./routes/users');
+var home = require('./routes/home');
 var configurations = require('./routes/configurations');
 
 // Init App
@@ -74,27 +75,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use('/', configurations);
+app.use('/', home);
+app.use('/configuration', configurations);
 app.use('/users', users);
 
-app.use('/jump', (req, res) => {
-  res.render('jump')
-});
-
-app.use('/shoot', (req, res) => {
-  res.render('shoot')
-});
-
-app.use('/slide', (req, res) => {
-  res.render('slide')
-});
-
-app.use('/run', (req, res) => {
-  res.render('run')
-});
-
 app.use('/existing', (req, res) => {
-  res.render('existing-configuration')
+  res.render('existing_configuration')
 });
 // Set Port
 app.set('port', (process.env.PORT || 4000));
