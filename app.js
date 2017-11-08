@@ -76,10 +76,26 @@ app.use(function (req, res, next) {
 
 app.use('/', configurations);
 app.use('/users', users);
+
 app.use('/jump', (req, res) => {
   res.render('jump')
 });
 
+app.use('/shoot', (req, res) => {
+  res.render('shoot')
+});
+
+app.use('/slide', (req, res) => {
+  res.render('slide')
+});
+
+app.use('/run', (req, res) => {
+  res.render('run')
+});
+
+app.use('/existing', (req, res) => {
+  res.render('existing-configuration')
+});
 // Set Port
 app.set('port', (process.env.PORT || 4000));
 

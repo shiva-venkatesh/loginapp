@@ -1,41 +1,26 @@
 <link rel="stylesheet" href="/css/wizard.css" />
 <link rel="stylesheet" href="/css/config.css" />
+
+<script type="text/javascript" src="/js/shoot.js"></script>
+
 <div class="page-content">
-	<h2 class="page-header">Your configuration</h2>
-	<p class="instructions">Please set your game controls</p>
-	<p class="instructions">Choose from keys W, A, S and D for controls Jump, Shoot, Slide and Run </p>
+	<h2 class="page-header">Set your configuration</h2>
+	<p class="instructions">Please set your game control for Shoot</p>
 
 	<div class="configuration-box">
-		<div class="card jump-select key-control-box">
-			<div class="card-block">
-				<p class="instructions">
-					Enter a key for Jump control
-				</p>
-				<input class="jump-input hide" type="text" name="jumpInput">
-			</div>
-		</div>
-		<div class="card shoot-select key-control-box hide">
+		<div class="card shoot-select key-control-box">
 			<div class="card-block">
 				<p class="instructions">
 					Enter a key for Shoot control
 				</p>
-				<input class="shoot-input hide" type="text" name="shootInput">
-			</div>
-		</div>
-		<div class="card slide-select key-control-box hide">
-			<div class="card-block">
-				<p class="instructions">
-					Enter a key for Slide control
+				<p class="shoot-key" id="shootKey">
+					
 				</p>
-				<input class="slide-input hide" type="text" name="slideInput">
-			</div>
-		</div>
-		<div class="card run-select key-control-box hide">
-			<div class="card-block">
-				<p class="instructions">
-					Enter a key for Run
-				</p>
-				<input class="run-input hide" type="text" name="runInput">
+				<a href="shoot">
+					<button class="btn btn-success">
+						Next
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>

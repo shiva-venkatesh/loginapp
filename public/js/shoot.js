@@ -6,11 +6,10 @@ document.addEventListener('keyup', (event) => {
 
   console.log('keyName value : ' + keyName)
   if(availableKeyValues.includes(keyName)) {
-		debugger
-		keyMappings['jump'] = keyName
-		console.log('Your key mapping is : ' + keyMappings['jump'])
-		localStorage.setItem('keyMappings', keyMappings)
-		console.log('Your LS key mapping is : ' + window.localStorage.keyMappings['jump'])
-	  $("#jumpKey")[0].innerHTML = keyName.toUpperCase()
+    debugger
+		keyMappings['shoot'] = keyName
+		console.log('Your key mapping is : ' + keyMappings['shoot'])
+    localStorage.setItem('keyMappings', keyMappings)
+	  $("#shootKey")[0].innerHTML = keyName.toUpperCase()
   }
 }, false)
