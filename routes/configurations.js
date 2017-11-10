@@ -12,14 +12,6 @@ function ensureAuthenticated(req, res, next){
 	}
 }
 
-function isEmpty(obj) {
-    for(var key in obj) {
-        if(obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
-}
-
 const get_new_configuration = (req, res) => {
 	res.render('create_configuration')
 }
@@ -45,7 +37,7 @@ const post_new_configuration = (req, res, next) => {
 	 })
 }
 
-const show_configuration = function(req, res) {
+const show_configuration = (req, res) => {
   var configQuery = Configuration.find({ username: req.user.username })
   var promise = configQuery.exec()
   promise.then(function(config) {
@@ -61,9 +53,21 @@ const show_configuration_API = function(req, res) {
   })
 }
 
+const copy_configuration = (req, res) => {
+ const current_username = req.user.username
+ Configuration.find({}, 'username', function(err, users) {
+      if(err){
+        console.log(err);
+      } else{
+			  res.render('existing_configuration', {users: users})
+      }
+  })
+}
+
 router.get('/new', ensureAuthenticated, get_new_configuration)
 router.post('/new', ensureAuthenticated, post_new_configuration, show_configuration)
 
+router.get('/copy', ensureAuthenticated, copy_configuration)
 router.get('/show', ensureAuthenticated, show_configuration)
 router.get('/show.json', ensureAuthenticated, show_configuration_API)
 

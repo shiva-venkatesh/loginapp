@@ -79,9 +79,6 @@ app.use('/', home);
 app.use('/configuration', configurations);
 app.use('/users', users);
 
-app.use('/existing', (req, res) => {
-  res.render('existing_configuration')
-});
 // Set Port
 app.set('port', (process.env.PORT || 4000));
 

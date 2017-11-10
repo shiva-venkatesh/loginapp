@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/config-show.css" />
+
+<script type="text/javascript" src="/js/copy_configuration.js"></script>
+
+<div class="page-content">
+	<h1>Your key configuration</h1>
+	<ul class="list-group">
+		{{#each users}}
+		  <div class="row list-row">
+			  <li class="list-group-item">
+			  	{{username}}
+			  	<button class="pull-right btn-success">
+			  		Copy
+			  	</button>
+			  </li>
+		  </div>
+		{{/each}}
+	</ul>
+</div>
