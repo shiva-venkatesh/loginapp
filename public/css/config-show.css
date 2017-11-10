@@ -5,7 +5,13 @@
 }
 
 .list-group-item {
+	font-family: 'Comfortaa', cursive;
 	margin: 10px;
+}
+
+.config-display {
+	padding-left: 10px;
+	border-left: 1px solid gray;
 }
 
 .right {
