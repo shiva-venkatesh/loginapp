@@ -5,10 +5,32 @@
 
 <div class="page-content">
 	<h1>Your key configuration</h1>
+	<ul class="list-group">
 	{{#with config}}
-		<p id="jump-config"></p>
-		<p id="shoot-config"></p>
-		<p id="slide-config"></p>
-		<p id="run-config"></p>
+	  <div class="row list-row">
+		  <li class="list-group-item">
+		  	Jump Control
+		  	<p class="pull-right" id="jump-config"></p>
+		  </li>
+	  </div>
+	  <div class="row list-row">
+		  <li class="list-group-item">
+			  Shoot Control
+			  <p class="pull-right" id="shoot-config"></p>
+			</li>
+	  </div>
+	  <div class="row list-row">
+		  <li class="list-group-item">
+		  	Slide Control
+		  	<p class="pull-right" id="slide-config"></p>
+		  </li>
+	  </div>
+	  <div class="row list-row">
+		  <li class="list-group-item">
+		  	Run Control
+		  	<p class="pull-right" id="run-config"></p>
+		  </li>
+	  </div>
 	{{/with}}
+	</ul>
 </div>
