@@ -6,7 +6,7 @@ const keyMappings = {
 	run:''
 }
 const possibleKeyValues = ['w', 'W', 'a', 'A', 's', 'S', 'd', 'D']
-const availableKeyValues = []
+const usedKeyValues = []
 
 function makeAPICall(keyMappings){
 	$.post("/configuration/new", keyMappings)
@@ -35,7 +35,13 @@ document.addEventListener('keyup', (event) => {
 	  }
   $('#jump-key').on('click', function(e) {
 		console.log('pressed JUMP')
-		keyMappings['jump'] = keyName
+		if(!usedKeyValues.includes(keyName)) {
+			keyMappings['jump'] = keyName
+			usedKeyValues.push(keyName.toUpperCase(), keyName.toLowerCase())
+		}
+		else {
+			$('#jump-key').prop('disabled', true)
+		}
 		console.log(keyMappings['jump'])
 		$('.jump-select').fadeOut('slow')
 		$('.shoot-select').toggleClass('fadeIn hide')
@@ -43,7 +49,13 @@ document.addEventListener('keyup', (event) => {
 	})
   $('#shoot-key').on('click', function(e) {
 		console.log('pressed SHOOT')
-		keyMappings['shoot'] = keyName
+		if(!usedKeyValues.includes(keyName)) {
+			keyMappings['shoot'] = keyName
+			usedKeyValues.push(keyName.toUpperCase(), keyName.toLowerCase())
+		}
+		else {
+			$('#shoot-key').prop('disabled', true)
+		}
 		$('.shoot-select').fadeOut('slow')
 		$('.slide-select').removeClass('hide')
 		$('.slide-select').addClass('fadeIn')
@@ -51,14 +63,23 @@ document.addEventListener('keyup', (event) => {
 	})
   $('#slide-key').on('click', function(e) {
 		console.log('pressed SLIDE')
-		keyMappings['slide'] = keyName
+		if(!usedKeyValues.includes(keyName)) {
+			keyMappings['slide'] = keyName
+			usedKeyValues.push(keyName.toUpperCase(), keyName.toLowerCase())
+		} else {
+			$('#slide-key').prop('disabled', true)
+		}
 		$('.slide-select').fadeOut('slow')
 		$('.run-select').toggleClass('fadeIn hide')
-		clearValues()
 	})
   $('#run-key').on('click', function(e) {
 		console.log('pressed RUN')
-		keyMappings['run'] = keyName
+		if(!usedKeyValues.includes(keyName)) {
+			keyMappings['run'] = keyName
+			usedKeyValues.push(keyName.toUpperCase(), keyName.toLowerCase())
+		} else {
+			$('#run-key').prop('disabled', true)
+		}
 		makeAPICall(keyMappings)
 	})
 }, false)
