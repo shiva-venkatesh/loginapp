@@ -9,18 +9,17 @@ const possibleKeyValues = ['w', 'W', 'a', 'A', 's', 'S', 'd', 'D']
 const availableKeyValues = []
 
 function makeAPICall(keyMappings){
-	console.log('---------')
-	console.log('jump ' + keyMappings.jump)
-	console.log('shoot ' + keyMappings.shoot)
-	console.log('slide ' + keyMappings.slide)
-	console.log('run ' + keyMappings.run)
-	console.log('---------')	
-	debugger
 	$.post("/configuration/new", keyMappings)
 	  .done(function(response) {
 			console.log(response)
 			window.location.replace("show");
 	  });
+}
+
+function clearValues() {
+	$('.key-preview').each(function(index){
+	  $(".key-preview")[index].innerHTML = ''  
+	})
 }
 
 document.addEventListener('keyup', (event) => {
@@ -40,6 +39,7 @@ document.addEventListener('keyup', (event) => {
 		console.log(keyMappings['jump'])
 		$('.jump-select').fadeOut('slow')
 		$('.shoot-select').toggleClass('fadeIn hide')
+		clearValues()
 	})
   $('#shoot-key').on('click', function(e) {
 		console.log('pressed SHOOT')
@@ -47,12 +47,14 @@ document.addEventListener('keyup', (event) => {
 		$('.shoot-select').fadeOut('slow')
 		$('.slide-select').removeClass('hide')
 		$('.slide-select').addClass('fadeIn')
+		clearValues()
 	})
   $('#slide-key').on('click', function(e) {
 		console.log('pressed SLIDE')
 		keyMappings['slide'] = keyName
 		$('.slide-select').fadeOut('slow')
 		$('.run-select').toggleClass('fadeIn hide')
+		clearValues()
 	})
   $('#run-key').on('click', function(e) {
 		console.log('pressed RUN')
