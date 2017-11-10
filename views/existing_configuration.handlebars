@@ -3,17 +3,16 @@
 <script type="text/javascript" src="/js/copy_configuration.js"></script>
 
 <div class="page-content">
-	<h1>Your key configuration</h1>
+	<h1>Existing key configurations</h1>
 	<ul class="list-group">
-		{{#each users}}
-		  <div class="row list-row">
-			  <li class="list-group-item">
-			  	{{username}}
-			  	<button class="pull-right btn-success">
-			  		Copy
-			  	</button>
-			  </li>
-		  </div>
-		{{/each}}
+				<select class="custom-select pull-left" id="select-conf">
+					{{#each users}}
+					  {{!-- <option selected>Choose a user configuration</option> --}}
+					  <option value={{username}}>{{username}}</option>
+					{{/each}}
+				</select>
+				<button class="copy-conf btn btn-success pull-right" id="copyConf" onclick="copyConfiguration()">
+					Copy
+				</button>
 	</ul>
 </div>

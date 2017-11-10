@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Configuration = require('../models/configuration');
+var User = require('../models/user');
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
@@ -53,21 +54,58 @@ const show_configuration_API = function(req, res) {
   })
 }
 
-const copy_configuration = (req, res) => {
+const get_copy_configuration = (req, res) => {
  const current_username = req.user.username
- Configuration.find({}, 'username', function(err, users) {
+ User.find({}, function(err, users) {
+ 	//get all users with a configuration
       if(err){
-        console.log(err);
+        console.log(err)
       } else{
+      	console.log(users)
 			  res.render('existing_configuration', {users: users})
       }
   })
 }
 
+const post_copy_configuration = (req, res) => {
+	console.log(req.body.selectedOption)
+	const sourceConf = req.body.selectedOption
+	Configuration.findOne({username: sourceConf}, function(err, config) {
+		if(err) {
+			console.log(err)
+		} else {
+			Configuration.findOne({username: req.user.username}, function(err, current_user_config) {
+				if(err) {
+					console.log(err)
+				} else {
+					current_user_config.username = req.user.username
+					current_user_config.jump = config.jump
+					current_user_config.shoot = config.shoot
+					current_user_config.slide = config.slide
+					current_user_config.run = config.run
+					current_user_config.save(function(err) {
+						if(err) { console.log(err) }
+							else {
+								console.log('Records successfully copied')
+							}
+					})
+				}
+			})
+			// Configuration.update({username: req.user.username}, {
+			// 	jump: config.jump,
+			// 	shoot: config.shoot,
+			// 	slide: config.slide,
+			// 	run: config.run
+			// }, function(err, ))
+		}
+	})
+}
+
 router.get('/new', ensureAuthenticated, get_new_configuration)
 router.post('/new', ensureAuthenticated, post_new_configuration, show_configuration)
 
-router.get('/copy', ensureAuthenticated, copy_configuration)
+router.get('/copy', ensureAuthenticated, get_copy_configuration)
+router.post('/copy', ensureAuthenticated, post_copy_configuration)
 router.get('/show', ensureAuthenticated, show_configuration)
 router.get('/show.json', ensureAuthenticated, show_configuration_API)
 
