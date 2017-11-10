@@ -13,27 +13,25 @@
 				<p class="instructions">
 					Enter a key for Jump control
 				</p>
-				<p class="jump-key" id="jumpKey">
-					
+				<p class="key-preview jump-preview">
 				</p>
-				<button class="btn btn-success">
+				<input class="jump-input hide" type="text" name="jumpInput" id="jumpInput">
+				<button class="btn btn-success" id="jump-key">
 					Next
 				</button>
-				<input class="jump-input hide" type="text" name="jumpInput" id="jumpInput">
-				</div>
+			</div>
 		</div>
 		<div class="card shoot-select key-control-box hide">
 			<div class="card-block">
 				<p class="instructions">
 					Enter a key for Shoot control
 				</p>
-				<p class="shoot-key" id="shootKey">
-					
+				<p class="key-preview shoot-preview">
 				</p>				
-				<button class="btn btn-success">
+				<input class="shoot-input hide" type="text" name="shootInput">
+				<button class="btn btn-success" id="shoot-key">
 					Next
 				</button>				
-				<input class="shoot-input hide" type="text" name="shootInput">
 			</div>
 		</div>
 		<div class="card slide-select key-control-box hide">
@@ -41,13 +39,12 @@
 				<p class="instructions">
 					Enter a key for Slide control
 				</p>
-				<p class="slide-key" id="slideKey">
-					
+				<p class="key-preview slide-preview">
 				</p>				
-				<button class="btn btn-success">
+				<input class="slide-input hide" type="text" name="slideInput">
+				<button class="btn btn-success" id="slide-key">
 					Next
 				</button>				
-				<input class="slide-input hide" type="text" name="slideInput">
 			</div>
 		</div>
 		<div class="card run-select key-control-box hide">
@@ -55,13 +52,14 @@
 				<p class="instructions">
 					Enter a key for Run
 				</p>
-				<p class="run-key" id="jumpKey">
-					
+				<p class="key-preview run-preview">
 				</p>
-				<button class="btn btn-success">
-					Finish
-				</button>				
 				<input class="run-input hide" type="text" name="runInput">
+				<a href="/configuration/show">
+					<button type="submit" class="btn btn-success" id="run-key">
+						Finish
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
