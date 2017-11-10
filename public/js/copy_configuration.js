@@ -5,8 +5,7 @@ function copyConfiguration(dickMove) {
 	}
 	$.post('/configuration/copy', dataObj)
 	  .done(function(response) {
-			console.log(response)
-			// window.location.replace("show");
+			window.location.replace("show");
 	  });
-	alert(selectedOption)
+	alert('You have successfully copied the key configuration')
 }

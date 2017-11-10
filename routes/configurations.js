@@ -87,16 +87,11 @@ const post_copy_configuration = (req, res) => {
 						if(err) { console.log(err) }
 							else {
 								console.log('Records successfully copied')
+								res.redirect('show')
 							}
 					})
 				}
 			})
-			// Configuration.update({username: req.user.username}, {
-			// 	jump: config.jump,
-			// 	shoot: config.shoot,
-			// 	slide: config.slide,
-			// 	run: config.run
-			// }, function(err, ))
 		}
 	})
 }
