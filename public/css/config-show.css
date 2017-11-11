@@ -17,3 +17,9 @@
 .right {
 	margin: 0 auto;
 }
+
+.list-group {
+	padding-top: 20px;
+	display: flex;
+  justify-content: space-between;
+}
